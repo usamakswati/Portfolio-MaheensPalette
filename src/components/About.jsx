@@ -19,7 +19,7 @@ const About = () => {
                     </div>
                     <div className="about-text-column">
                         <h3 className="about-internal-heading reveal reveal-up delay-1">
-                            INNOVATIVE FASHION ILLUSTRATOR & VISUAL STORYTELLER
+                            GRAPHIC DESIGNER AND FASHION ILLUSTRATOR
                         </h3>
                         <p className="about-description reveal reveal-up delay-2">
                             I am a dedicated Graphic Designer and Fashion & Textile student at Pearson University (Expected 2027) with a strong foundation in visual storytelling and brand identity. I specialize in merging traditional design concepts with modern digital tools, utilizing Adobe Photoshop and Illustrator to bring creative visions to life. My expertise spans graphic design, logo creation, and packaging design, all driven by a strategic approach to visual marketing and branding.
