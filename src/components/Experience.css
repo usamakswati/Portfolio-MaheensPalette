@@ -153,3 +153,39 @@
         font-size: 3rem;
     }
 }
+
+/* ─── Tablet ────────────────────────────────────────────────────── */
+@media (max-width: 900px) {
+    .exp-grid-block {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* ─── Mobile ─────────────────────────────────────────────────────── */
+@media (max-width: 600px) {
+    .experience-section {
+        padding: var(--spacing-lg) 0;
+    }
+
+    .exp-image-col {
+        min-height: 280px;
+    }
+
+    .exp-main-header {
+        padding: var(--spacing-md);
+    }
+
+    .experience-heading {
+        font-size: clamp(2rem, 9vw, 3.5rem);
+    }
+
+    .exp-grid-block {
+        grid-template-columns: 1fr;
+        padding: var(--spacing-md);
+        gap: var(--spacing-md);
+    }
+
+    .exp-item-desc {
+        margin-bottom: var(--spacing-md);
+    }
+}
