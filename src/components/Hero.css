@@ -1,0 +1,101 @@
+.hero {
+    padding: var(--spacing-lg) 0;
+    min-height: 80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.hero-block {
+    background-color: var(--color-bg);
+    position: relative;
+    overflow: hidden;
+    /* Simulate the card look */
+    box-shadow: 10px 10px 0px var(--color-text);
+}
+
+.hero-content {
+    padding: var(--spacing-xl) var(--spacing-md);
+    position: relative;
+}
+
+.hero-badge {
+    position: absolute;
+    top: var(--spacing-md);
+    right: var(--spacing-md);
+    background-color: var(--color-accent);
+    color: var(--color-bg);
+    padding: var(--spacing-sm);
+    font-family: var(--font-display);
+    font-weight: 700;
+    text-align: center;
+    line-height: 1.1;
+    transform: rotate(5deg);
+    border: var(--border-width) solid var(--color-text);
+}
+
+.hero-title {
+    font-size: clamp(4rem, 11vw, 10rem);
+    line-height: 1.0;
+    margin-bottom: 0;
+    text-transform: uppercase;
+    word-break: break-word;
+}
+
+.hero-title span.block {
+    display: block;
+}
+
+.hero-footer {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    border-top: var(--border-width) solid var(--color-text);
+    background-color: var(--color-text);
+    /* Black bar */
+    color: var(--color-bg);
+}
+
+.meta-item {
+    padding: var(--spacing-md);
+    border-right: 1px solid var(--color-secondary);
+    /* Subtle separation in the black bar */
+    display: flex;
+    flex-direction: column;
+}
+
+.meta-item:last-child {
+    border-right: none;
+}
+
+.meta-label {
+    font-family: var(--font-display);
+    font-size: 0.8rem;
+    opacity: 0.7;
+    margin-bottom: 0.2rem;
+}
+
+.meta-value {
+    font-family: var(--font-body);
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.barcode {
+    font-family: 'Libre Barcode 39 Text', cursive;
+    /* Fallback to monospace if not available */
+    font-size: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    letter-spacing: 2px;
+    background-color: var(--color-bg);
+    color: var(--color-text);
+}
+
+/* Use monospace as fallback for barcode */
+.barcode {
+    font-family: 'Courier New', monospace;
+    font-weight: 900;
+    transform: scaleY(1.5);
+    overflow: hidden;
+}
