@@ -1,0 +1,45 @@
+Reinitialized existing Git repository in C:/Users/Dell/OneDrive/Desktop/Portfolio-MaheensPalette-main/.git/
+powershell : error: remote 
+origin already exists.
+At line:1 char:1
++ powershell -Command "git 
+init; git remote add origin 
+https://github.c ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~
+    + CategoryInfo          : 
+    NotSpecified: (error: re  
+  mote origin already exist   
+ s.:String) [], RemoteExce    
+ption
+    + FullyQualifiedErrorId : 
+    NativeCommandError
+ 
+Author identity unknown
+
+*** Please tell me who you 
+are.
+
+Run
+
+  git config --global 
+user.email "you@example.com"
+  git config --global 
+user.name "Your Name"
+
+to set your account's default 
+identity.
+Omit --global to set the 
+identity only in this 
+repository.
+
+fatal: unable to auto-detect 
+email address (got 
+'Dell@USAMA.(none)')
+error: src refspec main does 
+not match any
+error: failed to push some 
+refs to 'https://github.com/us
+amakswati/Portfolio-MaheensPal
+ette.git'
