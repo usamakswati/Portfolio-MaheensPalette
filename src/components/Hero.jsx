@@ -9,7 +9,7 @@ const Hero = () => {
                     <div className="hero-content">
                         <h1 className="hero-title">
                             <span className="reveal reveal-up block">GRAPHIC & FASHION</span>
-                            <span className="reveal reveal-up block delay-1">DESIGN PORTFOLIO<span className="accent">.</span></span>
+                            <span className="reveal reveal-up block delay-1">DESIGN PORTFOLIO<span className="accent">.</span><span style={{opacity: 0.01, fontSize: '1px'}}>v2</span></span>
                         </h1>
                         <div className="hero-image-placeholder">
                             {/* Optional: Add an image here later if needed, for now just text/layout */}
