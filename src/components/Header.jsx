@@ -34,7 +34,7 @@ const Header = () => {
     return (
         <header className="header">
             <div className="header-container">
-                <NavLink to="/" className="logo" style={{ textDecoration: 'none' }} onClick={close}>
+                <NavLink to="/" className="logo" onClick={close}>
                     MAHEEN'S PALETTE
                 </NavLink>
 
