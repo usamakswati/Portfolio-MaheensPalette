@@ -1,9 +1,7 @@
 name: 🎨 Deploy Maheen's Palette
 
 on:
-  push:
-    branches:
-      - main  # This means it deploys every time you push to 'main'
+  workflow_dispatch:  # This means it only deploys when you manually trigger it in the Actions tab.
 
 jobs:
   web-deploy:
