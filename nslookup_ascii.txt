@@ -1,7 +1,0 @@
-Server:  UnKnown
-Address:  fe80::1
-
-Name:    maheenspalette.work
-Addresses:  2a07:7800::193
-	  185.146.167.193
-

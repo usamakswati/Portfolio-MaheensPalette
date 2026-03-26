@@ -1,5 +1,0 @@
-599650d Convert styles to CSS files and maintain React animations
-4c4af5a Fix deployment paths and add about section marker
-0c66c0c Deploy updates to main and live site
-56b8d5a update website changes
-b9f0195 Fix FTP action by building dist folder
