@@ -1,0 +1,8 @@
+# robots.txt for Maheen's Palette Portfolio
+# https://www.robotstxt.org/robotstxt.html
+
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://usamakswati.github.io/Portfolio-MaheensPalette/sitemap.xml
