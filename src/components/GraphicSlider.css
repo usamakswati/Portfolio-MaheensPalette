@@ -1,0 +1,292 @@
+/* ─── Infinite Marquee ─────────────────────────────────────────────── */
+
+@keyframes marqueeLeft {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+@keyframes marqueeRight {
+    0% {
+        transform: translateX(-50%);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+}
+
+/* Drag hint */
+.marquee-hint {
+    text-align: center;
+    margin-bottom: 0.5rem;
+    font-family: var(--font-display);
+    font-size: 0.72rem;
+    letter-spacing: 0.15em;
+    color: var(--color-secondary);
+    opacity: 0.55;
+    user-select: none;
+}
+
+.marquee-slider {
+    width: 100%;
+    padding: var(--spacing-lg) 0;
+}
+
+/* Outer wrapper — overflow-x scroll (scrollbar hidden), JS drives scrollLeft */
+.marquee-outer {
+    position: relative;
+    width: 100%;
+    overflow-x: scroll;
+    overflow-y: hidden;
+
+    /* ── Glassmorphism ── */
+    background: linear-gradient(
+        135deg,
+        rgba(212, 207, 196, 0.45) 0%,
+        rgba(234, 229, 217, 0.30) 50%,
+        rgba(196, 30, 30, 0.06) 100%
+    );
+    backdrop-filter: blur(18px) saturate(160%);
+    -webkit-backdrop-filter: blur(18px) saturate(160%);
+    border: 1px solid rgba(255, 255, 255, 0.38);
+    box-shadow:
+        0 8px 32px rgba(196, 30, 30, 0.12),
+        0 2px 8px rgba(26, 26, 26, 0.10),
+        inset 0 1px 0 rgba(255, 255, 255, 0.55),
+        inset 0 -1px 0 rgba(26, 26, 26, 0.08);
+
+    padding: var(--spacing-md) 0;
+    user-select: none;
+
+    /* Hide scrollbar */
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+
+    /* Fade edges */
+    -webkit-mask-image: linear-gradient(to right,
+            transparent 0%,
+            black 6%,
+            black 94%,
+            transparent 100%);
+    mask-image: linear-gradient(to right,
+            transparent 0%,
+            black 6%,
+            black 94%,
+            transparent 100%);
+}
+
+.marquee-outer::-webkit-scrollbar {
+    display: none;
+    /* Chrome/Safari */
+}
+
+/* Track — JS drives scrollLeft, no CSS animation needed */
+.marquee-track {
+    display: flex;
+    gap: var(--spacing-md);
+    width: max-content;
+    padding: 0 var(--spacing-md);
+}
+
+/* Individual card */
+.marquee-item {
+    flex-shrink: 0;
+    width: 280px;
+    cursor: pointer;
+    background-color: var(--color-bg);
+    border: var(--border-width) solid var(--color-text);
+    padding: 6px;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    position: relative;
+}
+
+.marquee-item:hover {
+    transform: translateY(-6px) scale(1.02);
+    box-shadow: 8px 8px 0px var(--color-text);
+    z-index: 2;
+}
+
+/* Image wrapper */
+.marquee-image-wrap {
+    position: relative;
+    overflow: hidden;
+    aspect-ratio: 3 / 4;
+    background-color: #EAE5D9;
+    background-image: linear-gradient(to right,
+            #EAE5D9 0%,
+            #F7F4EB 20%,
+            #EAE5D9 40%,
+            #EAE5D9 100%);
+    background-repeat: no-repeat;
+    background-size: 800px 100%;
+    animation: marqueeShimmer 1.5s linear infinite;
+}
+
+@keyframes marqueeShimmer {
+    0% {
+        background-position: -468px 0;
+    }
+
+    100% {
+        background-position: 468px 0;
+    }
+}
+
+.marquee-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    transition: opacity 0.4s ease, transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    display: block;
+}
+
+.marquee-image.loaded {
+    opacity: 1;
+}
+
+.marquee-item:hover .marquee-image {
+    transform: scale(1.06);
+}
+
+/* Hover overlay with title */
+.marquee-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(196, 30, 30, 0.85);
+    display: flex;
+    align-items: flex-end;
+    padding: var(--spacing-sm);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.marquee-item:hover .marquee-overlay {
+    opacity: 1;
+}
+
+.marquee-title {
+    font-family: var(--font-display);
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #fff;
+    letter-spacing: 0.05em;
+    line-height: 1.2;
+}
+
+/* ─── Lightbox Modal ───────────────────────────────────────────────── */
+
+.lightbox-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.95);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    animation: lbFadeIn 0.3s ease-out;
+}
+
+@keyframes lbFadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+.lightbox-close {
+    position: absolute;
+    top: var(--spacing-lg);
+    right: var(--spacing-lg);
+    background: var(--color-accent);
+    color: var(--color-bg);
+    border: var(--border-width) solid var(--color-bg);
+    font-size: 3rem;
+    font-family: var(--font-display);
+    font-weight: 700;
+    width: 60px;
+    height: 60px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+    transition: all 0.2s ease;
+    z-index: 10001;
+}
+
+.lightbox-close:hover {
+    background: var(--color-bg);
+    color: var(--color-text);
+    transform: rotate(90deg);
+}
+
+.lightbox-content {
+    max-width: 90vw;
+    max-height: 90vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-md);
+}
+
+.lightbox-image {
+    max-width: 100%;
+    max-height: 80vh;
+    object-fit: contain;
+    border: var(--border-width) solid var(--color-bg);
+    box-shadow: 0 10px 50px rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.lightbox-image.loaded {
+    opacity: 1;
+}
+
+.lightbox-caption {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: var(--color-bg);
+    background-color: var(--color-accent);
+    padding: var(--spacing-sm) var(--spacing-md);
+    border: var(--border-width) solid var(--color-bg);
+}
+
+/* ─── Responsive ───────────────────────────────────────────────────── */
+
+@media (max-width: 768px) {
+    .marquee-item {
+        width: 200px;
+    }
+
+    .lightbox-close {
+        top: var(--spacing-sm);
+        right: var(--spacing-sm);
+        width: 50px;
+        height: 50px;
+        font-size: 2.5rem;
+    }
+
+    .lightbox-image {
+        max-height: 70vh;
+    }
+
+    .lightbox-caption {
+        font-size: 1.2rem;
+    }
+}

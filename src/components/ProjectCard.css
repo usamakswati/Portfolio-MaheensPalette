@@ -1,0 +1,97 @@
+.project-card {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+    cursor: pointer;
+    border: var(--border-width) solid var(--color-text);
+    background-color: var(--color-white);
+    padding: var(--spacing-sm);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.project-card:hover {
+    transform: translate(-4px, -4px);
+    box-shadow: 8px 8px 0px var(--color-text);
+    background-color: var(--color-accent);
+}
+
+.project-card:hover .card-title,
+.project-card:hover .card-category,
+.project-card:hover .card-desc {
+    color: var(--color-bg);
+}
+
+.card-image-wrap {
+    position: relative;
+    overflow: hidden;
+    aspect-ratio: 3 / 4;
+    border: var(--border-width) solid var(--color-text);
+    background-color: var(--color-secondary);
+}
+
+.card-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.project-card:hover .card-image {
+    transform: scale(1.1);
+}
+
+.card-overlay {
+    display: none;
+    /* Removing overlay for this style in favor of static text below */
+}
+
+.card-content {
+    padding-top: var(--spacing-sm);
+}
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    border-bottom: var(--border-width) solid var(--color-text);
+    padding-bottom: var(--spacing-xs);
+    margin-bottom: var(--spacing-xs);
+}
+
+.project-card:hover .card-header {
+    border-bottom-color: var(--color-bg);
+}
+
+.card-id {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 0.9rem;
+}
+
+.card-category {
+    font-family: var(--font-display);
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.card-title {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    font-weight: 700;
+    line-height: 1;
+    text-transform: uppercase;
+    margin-bottom: var(--spacing-xs);
+}
+
+.card-desc {
+    font-size: 0.9rem;
+    line-height: 1.4;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    font-weight: 500;
+}

@@ -1,0 +1,19 @@
+fa5ec60 Emergency fix: deploy to renamed maheens_palette folder
+7cec53d Deploying to FTP root directory
+80d424c Restore deployment to public_html root with routing fix
+9c4b604 Deploying specifically to public_html/maheens palette folder
+3e41d90 Clean deploy to public_html root
+fdef2ff Update deployment path to maheens palette subfolder
+3e12bee Triggering clean deployment after manual index.html deletion
+6015d62 Add deploy test file
+effb548 Fix broken CSS import paths in page files
+34376e7 Re-triggering deployment after credential update
+d62c228 Retry deploy with updated credentials
+bd746b7 Cleanup project structure and reorganize style files
+dac1bbf Add new branding logo and update SEO meta tags
+4c4af5a Fix deployment paths and add about section marker
+0c66c0c Deploy updates to main and live site
+56b8d5a update website changes
+b9f0195 Fix FTP action by building dist folder
+d900e83 Merge About section
+ae1edb0 Update portfolio with SEO and image fixes
